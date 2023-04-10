@@ -25,5 +25,21 @@ pipeline {
                     }
             }
 
+     stage('Docker Image Creation'){
+               steps {
+                      sh 'docker build -t prafullla/healthcare-app:latest  .'
+                      }
+                   }
+
+     stage('Push Image to DockerHub'){
+               steps {
+                   withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+        	   sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+                   sh 'docker push prafullla/healthcare-app:latest'
+		   }
+                }
+            }
+
+
           }
 }
