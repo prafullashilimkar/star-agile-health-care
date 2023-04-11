@@ -68,7 +68,7 @@ pipeline {
      stage('deploy to kubernates') {
      steps{
      sshagent(['K8s']){
-     sh 'scp -o StrictHostKeyChecking=no deployment.yml
+     sh 'scp -o StrictHostKeyChecking=no Deployment.yml
 
      ubuntu@ip-172-31-33-165:/home/ubuntu'
 
