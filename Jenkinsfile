@@ -59,8 +59,8 @@ pipeline {
      //stage('Terrafrom init') {
          // steps{
      // sh 'terrafrom init'
-             }
-           }
+     //        }
+      //     }
     // stage('Terrafrom fmt') {
      //   steps{
      // sh 'terrafrom fmt'
