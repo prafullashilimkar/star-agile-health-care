@@ -18,5 +18,5 @@
   https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl",
  "sudo chmod +x /home/ubuntu/kubectl",
  "sudo cp kubectl /
- }
+ 
 
