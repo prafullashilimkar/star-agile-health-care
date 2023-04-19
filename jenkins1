@@ -1,0 +1,30 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('Checkout') {
+      steps {
+        git 'https://github.com/<username>/<repository>.git'
+      }
+    }
+
+    stage('Ansible Playbook') {
+      environment {
+        ANSIBLE_CONFIG = './ansible.cfg'
+      }
+      steps {
+        ansiblePlaybook(
+          playbook: 'kubernetes-install.yml',
+          inventory: 'hosts',
+          extras: '-e "ansible_python_interpreter=/usr/bin/python3"'
+        )
+      }
+    }
+
+    stage('Flannel') {
+      steps {
+        sh 'kubectl apply -f flannel.yaml'
+      }
+    }
+  }
+}
