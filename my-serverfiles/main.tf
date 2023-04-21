@@ -3,7 +3,7 @@ resource "aws_instance" "test-server" {
   instance_type = "t2.medium" 
   availability_zone = "ap-south-1a"
   vpc_security_group_ids= [aws_security_group.my_sg.id]
-  key_name = "jenkinskey1.pem"
+  key_name = "jenkinskey1"
   
   connection {
     type     = "ssh"
