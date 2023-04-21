@@ -3,12 +3,12 @@ pipeline {
 
   tools {
       maven 'M2_HOME'
-      //terraform 'terraform-11'  
+     
         }
-	//environment {
-       // AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
-       // AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-    //}
+	environment {
+       AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
+       AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+    }
 	
   stages {
      stage('checkout'){
@@ -48,6 +48,7 @@ pipeline {
 	  
 	  stage ('Configure Test-server with Terraform, Ansible and then Deploying'){
            steps {
+		 dir('my-serverfiles'){
                  sh 'sudo chmod 600 jenkinskey1.pem'
                  sh 'terraform init'
                  sh 'terraform validate'
@@ -56,27 +57,8 @@ pipeline {
             }
         }
 	  
-     //stage('Terrafrom init') {
-         // steps{
-     // sh 'terrafrom init'
-     //        }
-      //     }
-    // stage('Terrafrom fmt') {
-     //   steps{
-     // sh 'terrafrom fmt'
-    //      }
-   //     }      
-     //stage('Terrafrom validate') {
-       //steps{
-     //sh 'terrafrom validate'
-       //    }
-        // }      
-      //stage('Terrafrom plan') {
-      //steps{
-    //sh 'terrafrom plan'
-      //    }
-      //   }
-     //stage('Terrafrom apply') {
+     
+       
        // steps{
       //sh 'terrafrom apply -auto-approve'
      //sleep 10
