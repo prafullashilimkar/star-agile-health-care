@@ -36,7 +36,7 @@ pipeline {
         sh 'docker build -t prafullla/healthcare-app:latest .'
             }
     }
-    stage('DockerLogin') {
+   stage('DockerLogin') {
       steps {
         withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
         sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
@@ -44,9 +44,9 @@ pipeline {
         }
    }
 
-   stage('Push Image to DockerHub') {
+ /*  stage('Push Image to DockerHub') {
       steps {
-        sh 'docker push prafullla/healthcare-app:latest'
+        sh 'docker push prafullla/healthcare-app:latest'*/
             }
     }
       /* stage ('Configure Test-server with Terraform, Ansible and then Deploying'){
