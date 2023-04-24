@@ -49,16 +49,16 @@ pipeline {
         sh 'docker push prafullla/healthcare-app:latest'
             }
     }
-      /* stage ('Configure Test-server with Terraform, Ansible and then Deploying'){
+      stage ('Configure Test-server with Terraform'){
            steps {
                dir('my-serverfiles'){
-                sh 'sudo chmod 600 jenkinskey1.pem'
+                sh 'sudo chmod 600 serverkey.pem'
                 sh 'terraform init'
                 sh 'terraform validate'
                sh 'terraform apply --auto-approve'
                 }
             }
-        }*/
+        }
     /* stage('Deploy application using ansible'){
                steps {
                  ansiblePlaybook credentialsId: 'test-server1', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml'
