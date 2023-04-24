@@ -31,24 +31,24 @@ pipeline {
     }
     
     
-	 /*  stage('Docker Image Creation') {
+	  stage('Docker Image Creation') {
       steps {
-        sh 'docker build -t prafullla/bankingproject:latest .'
+        sh 'docker build -t prafullla/healthcare-app .'
             }
-    }*/
-   /* stage('DockerLogin') {
+    }
+    stage('DockerLogin') {
       steps {
         withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
         sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
             }
         }
-   }*/
+   }
 
-  /*  stage('Push Image to DockerHub') {
+   stage('Push Image to DockerHub') {
       steps {
-        sh 'docker push prafullla/bankingproject:latest'
+        sh 'docker push prafullla/healthcare-app:1.0'
             }
-    }*/
+    }
       /* stage ('Configure Test-server with Terraform, Ansible and then Deploying'){
            steps {
                dir('my-serverfiles'){
