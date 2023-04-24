@@ -46,9 +46,9 @@ pipeline {
 
  /*  stage('Push Image to DockerHub') {
       steps {
-        sh 'docker push prafullla/healthcare-app:latest'*/
+        sh 'docker push prafullla/healthcare-app:latest'
             }
-    }
+    }*/
       /* stage ('Configure Test-server with Terraform, Ansible and then Deploying'){
            steps {
                dir('my-serverfiles'){
@@ -63,6 +63,6 @@ pipeline {
                steps {
                  ansiblePlaybook credentialsId: 'test-server1', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml'
                    } 
-            } */
-     }
+            } 
+     }*/
 }
