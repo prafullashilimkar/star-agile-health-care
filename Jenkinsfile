@@ -44,11 +44,11 @@ pipeline {
         }
    }
 
- /*  stage('Push Image to DockerHub') {
+   stage('Push Image to DockerHub') {
       steps {
         sh 'docker push prafullla/healthcare-app:latest'
             }
-    }*/
+    }
       /* stage ('Configure Test-server with Terraform, Ansible and then Deploying'){
            steps {
                dir('my-serverfiles'){
