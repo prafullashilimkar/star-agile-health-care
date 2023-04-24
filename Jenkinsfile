@@ -33,7 +33,7 @@ pipeline {
     
 	  stage('Docker Image Creation') {
       steps {
-        sh 'docker build -t prafullla/healthcare-app:1.0 .'
+        sh 'docker build -t prafullla/healthcare-app:latest .'
             }
     }
     stage('DockerLogin') {
@@ -46,7 +46,7 @@ pipeline {
 
    stage('Push Image to DockerHub') {
       steps {
-        sh 'docker push prafullla/healthcare-app:1.0'
+        sh 'docker push prafullla/healthcare-app:latest'
             }
     }
       /* stage ('Configure Test-server with Terraform, Ansible and then Deploying'){
