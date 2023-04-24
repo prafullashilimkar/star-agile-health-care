@@ -33,7 +33,7 @@ pipeline {
     
 	  stage('Docker Image Creation') {
       steps {
-        sh 'docker build -t prafullla/healthcare-app .'
+        sh 'docker build -t prafullla/healthcare-app:1.0 .'
             }
     }
     stage('DockerLogin') {
